@@ -1,6 +1,6 @@
-import { Box, Flex, Heading, Link, IconButton, Drawer, DrawerOverlay, DrawerContent, DrawerBody, Button, useDisclosure } from "@chakra-ui/react";
+import { Box, Flex, Heading, Link, Drawer, DrawerOverlay, DrawerContent, DrawerBody, Button, useDisclosure } from "@chakra-ui/react";
 import { memo, VFC } from "react";
-import { HamburgerIcon } from "@chakra-ui/icons";
+import { MenuIconButton } from "../../atoms/button/MenuIconButton";
 
 export const Header: VFC = memo(() => {
   const { isOpen, onClose, onOpen } = useDisclosure()
@@ -20,7 +20,7 @@ export const Header: VFC = memo(() => {
             Setting
           </Link>
         </Flex>
-        <IconButton aria-label="menu button" icon={<HamburgerIcon />} size="sm" variant="unstyled" display={{ base: "block", md: "none" }} onClick={onOpen} />
+        <MenuIconButton onOpen={onOpen}  />
       </Flex>
       <Drawer placement="left" size="xs" onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay>
