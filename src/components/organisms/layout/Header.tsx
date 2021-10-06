@@ -1,6 +1,6 @@
 import { Box, Flex, Heading, Link, useDisclosure } from "@chakra-ui/react";
 import { memo, useCallback, VFC } from "react";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 import { MenuIconButton } from "../../atoms/button/MenuIconButton";
 import { MenuDrawer } from "../../molecules/MenuDrawer";
 
