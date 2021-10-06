@@ -2,8 +2,8 @@ import { memo, VFC } from "react";
 import { Drawer, DrawerOverlay, DrawerContent, DrawerBody, Button } from '@chakra-ui/react'
 
 type Props = {
-  onClose: () => void,
-  isOpen: boolean,
+  onClose: () => void;
+  isOpen: boolean;
 }
 
 export const MenuDrawer: VFC<Props> = memo((props) => {
