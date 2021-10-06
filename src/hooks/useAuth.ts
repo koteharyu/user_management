@@ -18,7 +18,7 @@ export const useAuth = () => {
       .then(res => {
         if (res.data) {
           showMessage({ title: "logged in", status: "success" })
-          history.push("/home")
+          history.push("/home/user_management")
         } else {
           showMessage({ title: "faild to login", status: "warning" })
           setLoading(false)
