@@ -6,11 +6,14 @@ import { UserCard } from "../organisms/user/UserCard";
 import { useAllUsers } from '../../hooks/useAllUsers'
 import { UserDetailModal } from "../organisms/user/UserDetailModal";
 import { useSelectUser } from '../../hooks/useSelectUser'
+import { useLoginUser } from "../../hooks/useLoginUser";
 
 export const UserManagement: VFC = memo(() => {
   const { getUsers, users, loading } = useAllUsers()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const { onSelectedUser, selectedUser } = useSelectUser()
+  const { loginUser } = useLoginUser()
+
 
   const onClickUser = useCallback((id: number) => {
     onSelectedUser({ id, users, onOpen })
@@ -35,7 +38,7 @@ export const UserManagement: VFC = memo(() => {
           ))}
         </Wrap>
       )}
-      <UserDetailModal isOpen={isOpen} onClose={onClose} user={selectedUser} />
+      <UserDetailModal isOpen={isOpen} onClose={onClose} user={selectedUser} isAdmin={loginUser?.isAdmin} />
     </>
   )
 })

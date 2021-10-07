@@ -11,6 +11,8 @@ export const Header: VFC = memo(() => {
   const onClickHome = useCallback(() => history.push("/home"), [history])
   const onClickUserManagement = useCallback(() => history.push("/home/user_management"), [history])
   const onClickSetting = useCallback(() => history.push("/home/setting"), [history])
+  const onClickLoginPage = useCallback(() => history.push('/'), [history])
+
   return (
     <>
       <Flex as="nav" bg="teal.500" color="gray.50" align="center" justify="space-between" padding={{ base: 3, md: 5 }}>
@@ -23,11 +25,18 @@ export const Header: VFC = memo(() => {
               User Management
             </Link>
           </Box>
-          <Link onClick={onClickSetting}>
-            Setting
-          </Link>
+          <Box pr={4}>
+            <Link onClick={onClickSetting}>
+              Setting
+            </Link>
+          </Box>
+          <Box ml="auto">
+            <Link onClick={onClickLoginPage}>
+              Login page
+            </Link>
+          </Box>
         </Flex>
-        <MenuIconButton onOpen={onOpen}  />
+        <MenuIconButton onOpen={onOpen} />
       </Flex>
       <MenuDrawer onClose={onClose} isOpen={isOpen} onClickHome={onClickHome} onClickUserManagement={onClickUserManagement} onClickSetting={onClickSetting} />
     </>
