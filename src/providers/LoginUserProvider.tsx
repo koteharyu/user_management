@@ -5,9 +5,11 @@ import { User } from "../types/api/user";
 
 export type LoginUserContextType = {
   // loginUserの初期値はnull
-  loginUser: User | null
-  setLoginUser: Dispatch<SetStateAction<User | null>>
+  loginUser: loginUser | null
+  setLoginUser: Dispatch<SetStateAction<loginUser | null>>
 }
+
+type loginUser = User & { isAdmin: boolean }
 
 type Props = {
   children: ReactNode
@@ -18,7 +20,7 @@ export const LoginUserContext = createContext<LoginUserContextType>({} as LoginU
 
 export const LoginUserProvider = (props: Props) => {
   const { children } = props
-  const [loginUser, setLoginUser] = useState<User | null>(null)
+  const [loginUser, setLoginUser] = useState<loginUser | null>(null)
   return (
     <LoginUserContext.Provider value = {{ loginUser, setLoginUser }}>
       {children}
