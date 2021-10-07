@@ -18,6 +18,6 @@ export const useAllUsers = () => {
         showMessage({ title: "faild to get users", status: "error" })
       })
     setLoading(false)
-  }, [])
+  }, [showMessage])
   return { getUsers, loading, users }
 }
